@@ -1,5 +1,5 @@
 {
-    "name": "helsingborg-stad/municipio",
+    "name": "municipio-lts/wp-theme-municipio-2024",
     "description": "A bootstrap theme for creating municipality sites.",
     "license": "MIT",
     "type": "wordpress-theme",
@@ -12,6 +12,10 @@
         {
             "name": "Sebastian Thulin",
             "email": "sebastian.thulin@helsingborg.se"
+        },
+        {
+            "name": "Whitespace",
+            "email": "code@whitespace.se"
         }
     ],
     "repositories": [
@@ -36,6 +40,7 @@
         "spatie/schema-org": "^3.9"
     },
     "extra": {
+        "installer-name": "municipio",
         "installer-paths": {
             "vendor/{$name}/": [
                 "type:wordpress-plugin"
