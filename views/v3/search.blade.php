@@ -87,7 +87,7 @@
                         @foreach($posts as $post) 
                             @card([
                                 'heading' => $post->postTitleFiltered,
-                                'subHeading' => $siteName,
+                                'subHeading' => $showSiteName ? $siteName : null,
                                 'content' => $post->excerpt,
                                 'link' => $post->permalink,
                                 'classList' => ['u-margin__top--4']
@@ -107,8 +107,8 @@
                     @pagination([
                         'list' => $paginationList, 
                         'classList' => ['u-margin__top--4', 'u-display--flex', 'u-justify-content--center'], 
-                        'current' => $currentPagePagination,
-                        'linkPrefix' => ''
+                        'current' => $currentPage,
+                        'linkPrefix' => 'paged'
                     ])
                     @endpagination
                 @endif

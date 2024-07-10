@@ -31,6 +31,9 @@ class Search extends \Municipio\Controller\Archive
         // Show or hide sidebars
         $this->data['showSidebars']                 = false;
 
+        // Show or hide site name in results
+        $this->data['showSiteName']                 = apply_filters('Municipio/Hook/showSiteNameInSearchResult', true);
+
     }
     /**
      * Default wordpress search
