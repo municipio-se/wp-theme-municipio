@@ -176,6 +176,7 @@ class Post
             if (empty($postObject->excerpt)) {
                 $postObject->excerpt = '<span class="undefined-content">' .
                 __("Item is missing content", 'municipio') . "</span>";
+                $postObject->excerpt = apply_filters('Municipio/Helper/Post/EmptyExcerpt', $postObject->excerpt);
             }
         }
 
