@@ -324,7 +324,7 @@ class Template
                     }
 
                     // Template slug
-                    if (get_page_template_slug()) {
+                    if (is_singular() && get_page_template_slug()) {
                         $type = get_page_template_slug();
                     }
 
