@@ -151,7 +151,9 @@ abstract class Panel
     {
 
         foreach ($sections as $section) {
-            $this->addSection($section);
+            if($section) {
+                $this->addSection($section);
+            }
         }
 
         return $this;

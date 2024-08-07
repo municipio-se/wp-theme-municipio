@@ -366,6 +366,9 @@ class Template
      */
     public function accessProtected($obj, $prop)
     {
+        if(!is_object($obj)) {
+            return [];
+        }
         $reflection = new \ReflectionClass($obj);
         $property   = $reflection->getProperty($prop);
         $property->setAccessible(true);
