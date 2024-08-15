@@ -114,6 +114,7 @@ class Support
         add_theme_support('editor-styles');
         add_theme_support('menus');
         add_theme_support('post-thumbnails');
+        add_theme_support('post-title');
         add_theme_support('html5', array(
             'comment-list',
             'comment-form',
