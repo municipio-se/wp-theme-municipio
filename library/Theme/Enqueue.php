@@ -28,8 +28,11 @@ class Enqueue
         add_action('admin_enqueue_scripts', array($this, 'adminScripts'), 999);
 
         // Removes version querystring from scripts and styles
-        add_filter('script_loader_src', array($this, 'removeScriptVersion'), 15, 1);
-        add_filter('style_loader_src', array($this, 'removeScriptVersion'), 15, 1);
+        $remove_script_versions = apply_filters('municipio/remove_script_versions', true);
+        if ($remove_script_versions) {
+            add_filter('script_loader_src', array($this, 'removeScriptVersion'), 15, 1);
+            add_filter('style_loader_src', array($this, 'removeScriptVersion'), 15, 1);
+        }
 
         // Removes generator tag
         add_filter('the_generator', function ($a, $b) {
