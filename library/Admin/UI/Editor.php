@@ -20,7 +20,10 @@ class Editor
         });
 
         // Custom plugins
-        $this->metaData();
+        $enable_meta_data_plugin = apply_filters('Municipio/Admin/EnableMetaDataPlugin', true);
+        if($enable_meta_data_plugin) {
+            $this->metaData();
+        }
         $this->pricons();
 
         // Filters
