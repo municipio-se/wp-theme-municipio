@@ -27,7 +27,11 @@ class Editor
         $this->pricons();
 
         // Filters
-        add_filter('tiny_mce_before_init', array($this, 'allowedHtmlTags')); // Allow specific html tags for editors
+        $allow_advanced_html_tags = apply_filters('Municipio/Admin/AllowAdvancedHtmlTags', true);
+        if($allow_advanced_html_tags) {
+            // Allow specific html tags for editors
+            add_filter('tiny_mce_before_init', array($this, 'allowedHtmlTags'));
+        }
     }
 
     /**
