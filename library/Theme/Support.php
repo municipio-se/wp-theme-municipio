@@ -13,7 +13,7 @@ class Support
         self::removeGravatar();
 
         add_action('template_redirect', array($this, 'blockAuthorPages'), 5);
-        add_action('init', array($this, 'removePostPostType'), 11);
+        $this->removePostPostType();
 
         add_filter('upload_mimes', array($this, 'mimes'));
 
@@ -58,6 +58,13 @@ class Support
 
         if (isset($wp_post_types['post'])) {
             if (function_exists('get_field') && get_field('disable_default_blog_post_type', 'option')) {
+                add_filter('register_post_type_args', function ($args, $post_type) {
+                    if($post_type == 'post') {
+                        $args['public'] = false;
+                    }
+                    return $args;
+                }, 10, 2);
+
                 add_action('admin_menu', function () {
                     remove_menu_page('edit.php');
                 });
@@ -71,6 +78,13 @@ class Support
 
         if (isset($wp_post_types['page'])) {
             if (function_exists('get_field') && get_field('disable_default_page_post_type', 'option')) {
+                add_filter('register_post_type_args', function ($args, $post_type) {
+                    if($post_type == 'page') {
+                        $args['public'] = false;
+                    }
+                    return $args;
+                }, 10, 2);
+
                 add_action('admin_menu', function () {
                     remove_menu_page('edit.php?post_type=page');
                 });
