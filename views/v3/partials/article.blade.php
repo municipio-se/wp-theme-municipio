@@ -1,3 +1,4 @@
+<div id="readspeaker-read">
 <article class="c-article c-article--readable-width s-article u-clearfix" id="article" {!! !empty($postLanguage) ? 'lang="' . $postLanguage . '"' : '' !!}>
 
     <!-- Title -->
@@ -87,3 +88,4 @@
     @endsection
 
 </article>
+</div>
