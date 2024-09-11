@@ -29,6 +29,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Inject access token in .npmrc
+        run: | 
+          echo "registry=https://npm.pkg.github.com/helsingborg-stad" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_GITHUB_TOKEN }}" >> ~/.npmrc
+
       - name: Install dependencies
         run: pnpm install
 
