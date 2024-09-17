@@ -551,7 +551,7 @@ class Navigation
             self::$db->prepare(
                 "
                 SELECT post_id
-                FROM " . self::$db->postmeta . " AS pm 
+                FROM " . self::$db->postmeta . " AS pm
                 JOIN " . self::$db->posts . " AS p ON pm.post_id = p.ID
                 WHERE meta_key = %s
                 AND meta_value = '1'
@@ -673,7 +673,6 @@ class Navigation
                     $menuItems,
                     $this->pageIdToMenuID($menuItems, $pageId)
                 );
-
                 foreach ($menuItems as $item) {
                     $isAncestor        = in_array($item->ID, $ancestors);
                     $result[$item->ID] = apply_filters('Municipio/Navigation/Item', [
@@ -685,6 +684,7 @@ class Navigation
                         'ancestor'    => $isAncestor,
                         'label'       => $item->title,
                         'href'        => $item->url,
+                        'target'      => $item->target,
                         'children'    => false,
                         'icon'        => [
                           'icon'      => get_field('menu_item_icon', $item->ID),
