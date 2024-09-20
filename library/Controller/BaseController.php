@@ -220,6 +220,7 @@ class BaseController
 
         //Main content padder
         $this->data['mainContentPadding'] = ['md' => 0, 'lg' => 0]; //Used to define view vars, used in singular controller.
+        $this->data['mainContentBottomMargin'] = 12;
 
         //Language
         $this->data['lang'] = TranslatedLabels::getLang(
