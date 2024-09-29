@@ -265,6 +265,10 @@ class BaseController
         'secondaryLoopEnd' => $this->hook('secondary_loop_end')
         );
 
+        $this->data['applyFilters'] = function ($filter_name, ...$args) {
+            return apply_filters('Municipio/Hook/' . $filter_name, ...$args);
+        };
+
         //Quicklinks placement is set in Singular
         $this->data['displayQuicklinksAfterContent'] = false;
 

@@ -1,4 +1,6 @@
-<nav aria-label="{{ $lang->primaryNavigation }}" class="u-display--none@xs u-display--none@sm u-display--none@md u-print-display--none" id="main-menu">
+<nav aria-label="{{ $lang->primaryNavigation }}"
+    class="{{ $applyFilters('primaryNavigationClass', 'u-display--none@xs u-display--none@sm u-display--none@md u-print-display--none') }}"
+    id="main-menu">
     @nav([
         'id' => 'menu-primary',
         'items' => $primaryMenuItems,
