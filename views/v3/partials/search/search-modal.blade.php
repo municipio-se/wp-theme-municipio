@@ -14,7 +14,8 @@
         'method' => 'get',
         'action' => $homeUrl,
         'classList' => ['search-form', 'c-form--hidden'],
-        'id' => 'modal-search-form'
+        'id' => 'modal-search-form',
+        'validation' => $applyFilters('searchFormValidation', true),
     ])
 
         @if($lang->searchQuestion)

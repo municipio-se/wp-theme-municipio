@@ -2,7 +2,8 @@
   'id'        => 'mobile-search-form',
   'method'    => 'get',
   'action'    => $homeUrl,
-  'classList' => $classList
+  'classList' => $classList,
+  'validation' => $applyFilters('searchFormValidation', true),
 ])
     @group(['direction' => 'horizontal', 'classList' => ['u-margin--auto']])
         @field([

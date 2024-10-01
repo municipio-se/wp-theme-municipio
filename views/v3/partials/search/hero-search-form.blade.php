@@ -3,7 +3,8 @@
     'method'    => 'get',
     'action'    => $homeUrl,
     'classList' => ['search-form', 'c-form--hidden', 'u-box-shadow--5', 'u-print-display--none'],
-    'context' => ['hero.search.form']
+    'context' => ['hero.search.form'],
+    'validation' => $applyFilters('searchFormValidation', true),
     ])
     @group([
         'id' => 'hero-search-form__wrapper',
