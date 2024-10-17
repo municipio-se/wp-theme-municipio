@@ -8,8 +8,8 @@
         ])
             @if ($postTitleFiltered)
                 @typography([
-                    'element' => 'h1', 
-                    'variant' => 'h1', 
+                    'element' => 'h1',
+                    'variant' => 'h1',
                     'id' => 'page-title',
                 ])
                     {!! $postTitleFiltered !!}
@@ -25,10 +25,10 @@
 
     <!-- Blog style author signature -->
     @includeWhen(
-        (!$postTypeDetails->hierarchical || $isBlogStyle), 
+        (!$postTypeDetails->hierarchical || $isBlogStyle),
         'partials.signature',
         array_merge(
-            (array) $signature, 
+            (array) $signature,
             (array) ['classList' => []]
         )
     )
@@ -57,7 +57,7 @@
             ],
             'type' => 'info',
             'icon' => [
-                'name' => 'lock_clock',
+                'name' => 'history',
                 'size' => 'md',
                 'color' => 'white'
             ]
@@ -78,10 +78,10 @@
     <!-- Blog style author signature -->
     @section('content.below')
         @includeWhen(
-            ($postTypeDetails->hierarchical && !$isBlogStyle), 
+            ($postTypeDetails->hierarchical && !$isBlogStyle),
             'partials.signature',
             array_merge(
-                (array) $signature, 
+                (array) $signature,
                 (array) ['classList' => []]
             )
         )
