@@ -48,10 +48,8 @@
                 @endif
             @endgroup
         @endif
-        @section('onepage.content')@show
-        {!! $hook-> onepageContent !!}
 
-        @if ($hasBlocks && $post)
+        @if ($hasBlocks && $post || $onepageBodyText ?? null)
             {!! $post->postContentFiltered !!}
         @endif
 

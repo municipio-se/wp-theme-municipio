@@ -4,6 +4,8 @@ namespace Municipio\Controller;
 
 use Municipio\Helper\FormatObject;
 use Municipio\Helper\TranslatedLabels;
+use Kirki;
+use Municipio\Customizer;
 
 class BaseController
 {
@@ -217,6 +219,10 @@ class BaseController
         //Column sizes
         $this->data['leftColumnSize']  = $this->getColumnSize('left', $this->data['customizer']);
         $this->data['rightColumnSize']  = $this->getColumnSize('right', $this->data['customizer']);
+        $this->data['onepageBodyText'] = Kirki::get_option(
+            Customizer::KIRKI_CONFIG,
+            "municipio_customizer_onepage_body_text",
+            );
 
         //Main content padder
         $this->data['mainContentPadding'] = ['md' => 0, 'lg' => 0]; //Used to define view vars, used in singular controller.
@@ -259,7 +265,6 @@ class BaseController
         'innerLoopStart' => $this->hook('inner_loop_start'),
         'innerLoopEnd' => $this->hook('inner_loop_end'),
         'articleContentBefore' => $this->hook('article_content_before'),
-        'onepageContent' => $this->hook('onepage_content'),
         'loopStart' => $this->hook('loop_start'),
         'loopEnd' => $this->hook('loop_end'),
         'secondaryLoopStart' => $this->hook('secondary_loop_start'),
