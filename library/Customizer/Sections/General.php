@@ -6,7 +6,7 @@ class General
 {
     public function __construct($sectionID)
     {
-        \Kirki::add_field(\Municipio\Customizer::KIRKI_CONFIG, [
+        \Kirki::add_field(\Municipio\Customizer::KIRKI_CONFIG, apply_filters('Municipio/Customizer/Sections/General/secondary_navigation_position', [
           'type'        => 'radio',
           'settings'    => 'secondary_navigation_position',
           'label'       => esc_html__('Secondary navigation position', 'municipio'),
@@ -21,7 +21,7 @@ class General
           'output' => [
             ['type' => 'controller']
           ],
-        ]);
+        ]));
 
         \Kirki::add_field(\Municipio\Customizer::KIRKI_CONFIG, [
           'type'        => 'checkbox_switch',
