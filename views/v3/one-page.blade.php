@@ -32,7 +32,7 @@
             ])
                 @if (!empty($post->postTitle))
                     @typography([
-                        'element' => 'h1', 
+                        'element' => 'h1',
                         'variant' => 'h1',
                         'id' => 'page-title',
                         'classList' => [
@@ -48,6 +48,8 @@
                 @endif
             @endgroup
         @endif
+        @section('onepage.content')@show
+        {!! $hook-> onepageContent !!}
 
         @if ($hasBlocks && $post)
             {!! $post->postContentFiltered !!}
