@@ -32,7 +32,7 @@
             ])
                 @if (!empty($post->postTitle))
                     @typography([
-                        'element' => 'h1', 
+                        'element' => 'h1',
                         'variant' => 'h1',
                         'id' => 'page-title',
                         'classList' => [
@@ -49,7 +49,7 @@
             @endgroup
         @endif
 
-        @if ($hasBlocks && $post)
+        @if ($hasBlocks && $post || $onepageBodyText ?? null)
             {!! $post->postContentFiltered !!}
         @endif
 
