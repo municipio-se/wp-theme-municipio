@@ -50,7 +50,12 @@
         @endif
 
         @if ($hasBlocks && $post || $onepageBodyText ?? null)
+            @section('article.content.before')@show
+            {!! $hook-> articleContentBefore !!}
+
             {!! $post->postContentFiltered !!}
+
+            @section('article.content.after')@show
         @endif
 
         {!! $hook->innerLoopEnd !!}
