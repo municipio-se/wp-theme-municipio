@@ -33,6 +33,10 @@
             data-js-toggle-class="mega-menu-open" @endif>
     <div class="site-wrapper">
 
+        {{-- Above header --}}
+        @section('above.header')@show
+            {!! $hook-> aboveHeader !!}
+
         {{-- Site header --}}
         @section('site-header')
             @if (!empty($customizer->headerApperance))

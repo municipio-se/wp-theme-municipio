@@ -264,6 +264,7 @@ class BaseController
         $this->data['hook'] = (object) array(
         'innerLoopStart' => $this->hook('inner_loop_start'),
         'innerLoopEnd' => $this->hook('inner_loop_end'),
+        'aboveHeader' => $this->hook('above_header'),
         'articleContentBefore' => $this->hook('article_content_before'),
         'loopStart' => $this->hook('loop_start'),
         'loopEnd' => $this->hook('loop_end'),
