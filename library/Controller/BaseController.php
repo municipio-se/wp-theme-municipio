@@ -266,6 +266,7 @@ class BaseController
         'innerLoopEnd' => $this->hook('inner_loop_end'),
         'aboveHeader' => $this->hook('above_header'),
         'articleContentBefore' => $this->hook('article_content_before'),
+        'articleContentAfter' => $this->hook('article_content_after'),
         'loopStart' => $this->hook('loop_start'),
         'loopEnd' => $this->hook('loop_end'),
         'secondaryLoopStart' => $this->hook('secondary_loop_start'),
