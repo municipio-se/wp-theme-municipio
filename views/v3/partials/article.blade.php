@@ -69,10 +69,7 @@
 
     <!-- Terms -->
     @section('article.terms.before')@show
-    @if (isset($terms))
-        @tags(['tags' => $terms, 'context' => ['article']])
-        @endtags
-    @endif
+
     @section('article.terms.after')@show
 
     {!! $hook-> articleContentAfter !!}
