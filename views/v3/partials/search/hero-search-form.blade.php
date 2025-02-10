@@ -1,3 +1,11 @@
+@php
+    // Default placeholder
+    $defaultPlaceholder = $lang->searchOn . " " . $siteName;
+
+    // Apply the filter to modify the placeholder dynamically
+    $searchPlaceholder = apply_filters('Municipio/Search/Hero_search_placeholder', $defaultPlaceholder);
+@endphp
+
 @form([
     'id'        => 'hero-search-form',
     'method'    => 'get',
@@ -5,7 +13,7 @@
     'classList' => ['search-form', 'c-form--hidden', 'u-box-shadow--5', 'u-print-display--none'],
     'context' => ['hero.search.form'],
     'validation' => $applyFilters('searchFormValidation', true),
-    ])
+])
     @group([
         'id' => 'hero-search-form__wrapper',
     ])
@@ -14,8 +22,8 @@
             'type' => 'search',
             'name' => 's',
             'required' => false,
-            'label' => $lang->searchOn . " " . $siteName,
-            'placeholder' => $lang->searchOn . " " . $siteName,
+            'label' => $searchPlaceholder,
+            'placeholder' => $searchPlaceholder,
             'size' => 'lg',
             'radius' => 'xs',
             'icon' => [
@@ -34,7 +42,6 @@
             ],
             'disableColor' => false,
             'context' => ['hero.search.button'],
-
         ])
         @endbutton
     @endgroup
