@@ -9,6 +9,7 @@
 
 @section('hero-top-sidebar')
     @includeIf('partials.hero')
+    @includeIf('partials.sidebar', ['id' => 'under-hero', 'classes' => ['o-grid']])
     @includeIf('partials.sidebar', ['id' => 'top-sidebar'])
 @stop
 
