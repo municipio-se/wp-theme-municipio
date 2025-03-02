@@ -424,5 +424,6 @@ class Archive
                 ]
             ]
         ]);
+        do_action('Municipio/Customizer/Sections/Archive/init', $sectionID, $archive);
     }
 }
