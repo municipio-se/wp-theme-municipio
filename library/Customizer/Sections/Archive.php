@@ -42,14 +42,14 @@ class Archive
             'label'    => esc_html__('Style', 'municipio'),
             'section'  => $sectionID,
             'default'  => 'cards',
-            'choices'  => [
+            'choices'  => apply_filters('Municipio/Customizer/Sections/Archive/archiveStyleChoices', [
                 'compressed' => esc_html__('Compressed', 'municipio'),
                 'cards' => esc_html__('Cards', 'municipio'),
                 'newsitem' => esc_html__('News', 'municipio'),
                 'list' => esc_html__('List', 'municipio'),
                 'grid' => esc_html__('Blocks', 'municipio'),
                 'collection' => esc_html__('Collection', 'municipio')
-            ],
+            ], $archive->name),
             'output' => [
                 [
                     'type' => 'controller',
