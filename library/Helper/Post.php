@@ -429,6 +429,8 @@ class Post
 
                         $item['label'] = $term->name ?? '';
 
+                        $item['taxonomy'] = $taxonomy;
+
                         if ($includeLink) {
                             $item['href'] = get_term_link($term->term_id);
                         }
