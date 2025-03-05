@@ -458,9 +458,20 @@ class Singular extends \Municipio\Controller\BaseController
             $postTypes = (array) get_field('avabile_dynamic_post_types', 'option');
             $postTypes = array_filter($postTypes);
 
+            // Adds default post type
+            $display = get_field('display_age_notification_on_default_posts', 'option');
+            $days = get_field('field_default_post_age_days', 'option');
+            $postTypes[] = [
+            'post_type_singular_name' => 'Post', 
+            'post_type_name' => 'post', 
+            'slug' => 'post', 
+            'display_age_notification_on_posts' => $display, 
+            'post_age_days' => $days,
+             ];
+
             if (is_array($postTypes) && !empty($postTypes)) {
                 foreach ($postTypes as $type) {
-                    $thisType = get_post_type_object($post->postType)->rewrite['slug'] ?? '';
+                    $thisType = get_post_type_object($post->postType)->name ?? '';
                     if (isset($type['slug']) && $type['slug'] !== $thisType) {
                         continue;
                     }
