@@ -98,6 +98,8 @@ class CustomPostType
                 'rest_base'          => $restBase,
             );
 
+            $args = apply_filters('Municipio/CustomPostType/args', $args, $typeDefinition);
+
             //Get custom menu icon
             if (isset($typeDefinition['menu_icon']) && isset($typeDefinition['menu_icon']['id']) && is_numeric($typeDefinition['menu_icon']['id'])) {
                 $image_filepath = get_attached_file($typeDefinition['menu_icon']['id']);
