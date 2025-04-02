@@ -518,6 +518,12 @@ class Post
             return self::$runtimeCache['getPostTypeMetaKeys'][$postType];
         }
 
+        self::$runtimeCache['getPostTypeMetaKeys'][$postType] = get_transient('Municipio/Helper/Post/cache/postTypeMetaKeys/' . $postType);
+
+        if (isset(self::$runtimeCache['getPostTypeMetaKeys'][$postType])) {
+            return self::$runtimeCache['getPostTypeMetaKeys'][$postType];
+        }
+
         global $wpdb;
         $metaKeys = $wpdb->get_col("
             SELECT DISTINCT {$wpdb->postmeta}.meta_key
@@ -536,7 +542,15 @@ class Post
             return true;
         });
 
-        return self::$runtimeCache['getPostTypeMetaKeys'][$postType] = $metaKeys;
+        set_transient(
+            'Municipio/Helper/Post/cache/postTypeMetaKeys/' . $postType,
+            $metaKeys,
+            MINUTE_IN_SECONDS
+        );
+
+        self::$runtimeCache['getPostTypeMetaKeys'][$postType] = $metaKeys;
+
+        return self::$runtimeCache['getPostTypeMetaKeys'][$postType];
     }
 
     /**

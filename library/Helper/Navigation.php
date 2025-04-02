@@ -43,36 +43,13 @@ class Navigation
 
         //Persistent
         if ($persistent) {
-            //Add to cache group (enables purging/banning)
-            if ($this->setcacheGroup($key)) {
-                //Store cache
-                return wp_cache_set($key, $data, '', $this->cacheExpire);
-            }
+            //Store cache
+            return set_transient('Municipio/Helper/Navigation/cache/' . $key, $data, $this->cacheExpire);
 
             return false;
         }
 
         return true;
-    }
-
-    /**
-     * Keep track of what's has been cached
-     *
-     * @param string $newCacheKey
-     * @return boolean
-     */
-    private function setCacheGroup($newCacheKey): bool
-    {
-        //Create new addition
-        $cacheObject = [$newCacheKey];
-
-        //Get old cache
-        $previousCachedObject = wp_cache_get($this->cacheGroup);
-        if (is_array($previousCachedObject) && !empty($previousCachedObject)) {
-            $cacheObject = array_merge($cacheObject, $previousCachedObject);
-        }
-
-        return wp_cache_set($this->cacheGroup, array_unique($cacheObject));
     }
 
     /**
@@ -90,7 +67,7 @@ class Navigation
 
         //Get persistent cache, store runtime
         if ($persistent) {
-            return $this->cache[$key] = wp_cache_get($key);
+            return $this->cache[$key] = get_transient('Municipio/Helper/Navigation/cache/' . $key);
         }
 
         return null;
@@ -659,7 +636,7 @@ class Navigation
      * @param string $menu The menu id to get
      * @return bool|array
      */
-    public function getMenuItems(string $menu, int $pageId = null, bool $fallbackToPageTree = false, bool $includeTopLevel = true, bool $onlyKeepFirstLevel = false)
+    public function getMenuItems(string $menu, ?int $pageId = null, bool $fallbackToPageTree = false, bool $includeTopLevel = true, bool $onlyKeepFirstLevel = false)
     {
         //Check for existing wp menu
         if (has_nav_menu($menu)) {
