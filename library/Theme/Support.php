@@ -57,7 +57,7 @@ class Support
         global $wp_post_types;
 
         if (isset($wp_post_types['post'])) {
-            if (function_exists('get_field') && get_field('disable_default_blog_post_type', 'option')) {
+            if (get_option('options_disable_default_blog_post_type', 0)) {
                 add_filter('register_post_type_args', function ($args, $post_type) {
                     if($post_type == 'post') {
                         $args['public'] = false;
@@ -77,7 +77,7 @@ class Support
         }
 
         if (isset($wp_post_types['page'])) {
-            if (function_exists('get_field') && get_field('disable_default_page_post_type', 'option')) {
+            if (get_option('options_disable_default_page_post_type', 0)) {
                 add_filter('register_post_type_args', function ($args, $post_type) {
                     if($post_type == 'page') {
                         $args['public'] = false;
