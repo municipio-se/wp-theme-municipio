@@ -51,7 +51,6 @@ class App
         new \Municipio\Theme\Navigation();
         new \Municipio\Theme\Icon();
         new \Municipio\Theme\Forms();
-        new \Municipio\Theme\ThemeMods();
 
 
         new \Municipio\Search\General();
