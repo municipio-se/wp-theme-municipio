@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=yes">
     <meta name="HandheldFriendly" content="true">
 
-    <script>
+    <script{!! wp_sanitize_script_attributes(apply_filters('wp_inline_script_attributes', [])) !!}>
         var ajaxurl = '{!! $ajaxUrl !!}';
     </script>
 

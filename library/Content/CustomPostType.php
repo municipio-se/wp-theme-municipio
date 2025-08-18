@@ -20,7 +20,7 @@ class CustomPostType
 
         //Disable filled fields
         add_action('admin_head', function () {
-            echo '<script>';
+            echo '<script' . wp_sanitize_script_attributes(apply_filters('wp_inline_script_attributes', [])) . '>';
                 echo '
                     jQuery(function(){
                         jQuery(".acf-field-56b3619c5defc").each(function(index,item){

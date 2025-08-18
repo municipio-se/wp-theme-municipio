@@ -22,7 +22,7 @@ class CustomTaxonomy
 
         //Disable filled fields
         add_action('admin_head', function () {
-            echo '<script>';
+            echo '<script' . wp_sanitize_script_attributes(apply_filters('wp_inline_script_attributes', [])) . '>';
                 echo '
                     jQuery(function(){
                         jQuery(".acf-field-56c5e5d43eb50").each(function(index,item){

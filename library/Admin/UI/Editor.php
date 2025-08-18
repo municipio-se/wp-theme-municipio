@@ -426,7 +426,7 @@ class Editor
             global $post;
             $metakeys = \Municipio\Helper\Post::getPostMetaKeys($post->ID);
 
-            echo '<script>
+            echo '<script' . wp_sanitize_script_attributes(apply_filters('wp_inline_script_attributes', [])) . '>
                     var metadata_button = [
             ';
 

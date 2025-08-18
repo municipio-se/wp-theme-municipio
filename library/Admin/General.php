@@ -62,7 +62,7 @@ class General
                 $colorsStr .= '"' . implode('","', $colors) . '",';
             }
             echo "
-            <script>
+            <script" . wp_sanitize_script_attributes(apply_filters('wp_inline_script_attributes', [])) . ">
             if (typeof(acf) != 'undefined') {
                 acf.add_filter('color_picker_args', function( args, \$field ){
                     args.palettes = [" . $colorsStr . "]

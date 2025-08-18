@@ -49,7 +49,7 @@ class CustomCodeInput
             return;
         }
 
-        echo '<script>' . $customJs . '</script>';
+        echo '<script' . wp_sanitize_script_attributes(apply_filters('wp_inline_script_attributes', [])) . '>' . $customJs . '</script>';
     }
 
     public function headerScripts()

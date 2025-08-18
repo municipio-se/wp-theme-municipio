@@ -101,7 +101,7 @@
                     width: 100%;
                 }
             </style>
-            <script>
+            <script<?php echo wp_sanitize_script_attributes(apply_filters('wp_inline_script_attributes', [])); ?>>
                 $(document).ready(function () {
                     if ( typeof top.tinymce !== 'undefined') {
                         //Standard WP editor
