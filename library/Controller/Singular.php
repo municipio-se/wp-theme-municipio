@@ -482,7 +482,8 @@ class Singular extends \Municipio\Controller\BaseController
                         && $type->displayAgeNotificationOnPosts === (bool) true
                     ) {
                         $postAge = $this->getPostAge($post->postDate);
-                        if ($postAge > $type->postAgeDays) {
+                        $updateAge = $this->getPostAge($post->modifiedDate);
+                        if ($postAge > $type->postAgeDays && $updateAge > $type->postAgeDays) {
                             return sprintf(
                                 _n(
                                     'This content was published more than %s day ago.',
