@@ -482,7 +482,7 @@ class Singular extends \Municipio\Controller\BaseController
                         && $type->displayAgeNotificationOnPosts === (bool) true
                     ) {
                         $postAge = $this->getPostAge($post->postDate);
-                        $updateAge = $this->getPostAge($post->modifiedDate);
+                        $updateAge = $this->getPostAge($post->postModified);
                         if ($postAge > $type->postAgeDays && $updateAge > $type->postAgeDays) {
                             return sprintf(
                                 _n(
