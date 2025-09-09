@@ -53,7 +53,9 @@
         @includeIf('partials.loop')
     @show
 
-    @includeIf('partials.sidebar', ['id' => 'content-area', 'classes' => ['o-grid']])
+    @if(apply_filters('Municipio/views/page-centered/content-area/show', true))
+        @includeIf('partials.sidebar', ['id' => 'content-area', 'classes' => ['o-grid']])
+    @endif
 
     @includeWhen($displayQuicklinksAfterContent, 'partials.navigation.fixed')
 
