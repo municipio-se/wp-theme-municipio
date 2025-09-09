@@ -53,7 +53,7 @@
         @includeIf('partials.loop')
     @show
 
-    @if(apply_filters('Municipio/views/page-centered/content-area/show', true))
+    @if(apply_filters('Municipio/views/single/content-area/show', true))
         @includeIf('partials.sidebar', ['id' => 'content-area', 'classes' => ['o-grid']])
     @endif
 
