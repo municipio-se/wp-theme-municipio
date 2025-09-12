@@ -6,7 +6,8 @@ class CustomCodeInput
 {
     public function __construct()
     {
-        if (!is_admin()) {
+        $allow_custom_code = apply_filters('Municipio/allowCustomCode', true);
+        if (!is_admin() && $allow_custom_code) {
             add_action('wp_head', array($this, 'printCssCode'), 999);
             add_action('wp_footer', array($this, 'printJsCode'), 999);
             add_action('wp_head', array($this, 'headerScripts'), 999);
