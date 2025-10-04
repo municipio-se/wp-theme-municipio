@@ -432,17 +432,17 @@ class Typography
                     [
                         'choice'    => 'font-size',
                         'element'   => ':root',
-                        'property'  => '--caption-font-size',
+                        'property'  => '--font-size-caption',
                     ],
                     [
                         'choice'    => 'variant',
                         'element'   => ':root',
-                        'property'  => '--caption-font-weight',
+                        'property'  => '--font-weight-caption',
                     ],
                     [
                         'choice'    => 'line-height',
                         'element'   => ':root',
-                        'property'  => '--caption-line-height',
+                        'property'  => '--line-height-caption',
                     ]
                 ]
             ],
