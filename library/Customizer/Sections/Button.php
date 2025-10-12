@@ -13,7 +13,7 @@ class Button
         /**
          * Color - Primary
          */
-        KirkiConditional::add_field(Customizer::KIRKI_CONFIG, [
+        KirkiConditional::add_field(Customizer::KIRKI_CONFIG, apply_filters('Municipio/Customizer/Sections/Button/primary/kirkiFieldArgs', [
             'type'        => 'multicolor',
             'settings'    => 'color_button_primary',
             'label'       => esc_html__('Primary button colors', 'municipio'),
@@ -40,12 +40,12 @@ class Button
                     'property'  => '--c-button-primary-color-contrasting',
                 ]
             ],
-        ], ['label' => esc_html__('Tailor Color: Primary', 'municipio'), 'settings' => 'button_primary_color_active']);
+        ], $sectionID), ['label' => esc_html__('Tailor Color: Primary', 'municipio'), 'settings' => 'button_primary_color_active']);
 
         /**
          * Color - Secondary
          */
-        KirkiConditional::add_field(Customizer::KIRKI_CONFIG, [
+        KirkiConditional::add_field(Customizer::KIRKI_CONFIG, apply_filters('Municipio/Customizer/Sections/Button/secondary/kirkiFieldArgs', [
             'type'        => 'multicolor',
             'settings'    => 'color_button_secondary',
             'label'       => esc_html__('Secondary button colors', 'municipio'),
@@ -72,12 +72,12 @@ class Button
                     'property'  => '--c-button-secondary-color-contrasting',
                 ]
             ],
-        ], ['label' => esc_html__('Tailor Color: Secondary', 'municipio'), 'settings' => 'button_secondary_color_active']);
+        ], $sectionID), ['label' => esc_html__('Tailor Color: Secondary', 'municipio'), 'settings' => 'button_secondary_color_active']);
 
          /**
          * Color - Default
          */
-        KirkiConditional::add_field(Customizer::KIRKI_CONFIG, [
+        KirkiConditional::add_field(Customizer::KIRKI_CONFIG, apply_filters('Municipio/Customizer/Sections/Button/default/kirkiFieldArgs', [
             'type'        => 'multicolor',
             'settings'    => 'color_button_default',
             'label'       => esc_html__('Default button colors', 'municipio'),
@@ -104,7 +104,7 @@ class Button
                     'property'  => '--c-button-color-contrasting',
                 ]
             ],
-        ], ['label' => esc_html__('Tailor Color: Default', 'municipio'), 'settings' => 'button_default_color_active']);
+        ], $sectionID), ['label' => esc_html__('Tailor Color: Default', 'municipio'), 'settings' => 'button_default_color_active']);
 
         Kirki::add_field(Customizer::KIRKI_CONFIG, $this->getShapeFieldAttributes($sectionID));
     }
