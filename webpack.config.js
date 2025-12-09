@@ -27,7 +27,7 @@ module.exports = {
         'js/styleguide': './assets/source/3.0/js/styleguide.js',
         'css/municipio': './assets/source/3.0/sass/main.scss',
         'js/municipio': './assets/source/3.0/js/municipio.js',
-        'js/instantpage': './node_modules/instant.page/instantpage.js',
+        // 'js/instantpage': './node_modules/instant.page/instantpage.js',
         'js/mce': './assets/source/3.0/mce-js/mce-buttons.js',
         'css/mce': './assets/source/3.0/sass/mce.scss',
         'css/blockeditor': './assets/source/3.0/sass/blockeditor.scss',
@@ -142,7 +142,30 @@ module.exports = {
                     },
                 ],
             },
+            /**
+             * Fonts
+             */
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[name][ext]',
+                    publicPath: '../',
+                },
+            },
         ],
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            maxInitialRequests: 10,
+            maxAsyncRequests: 10,
+        },
+    },
+    performance: {
+        hints: 'warning',
+        maxEntrypointSize: 250000,
+        maxAssetSize: 250000,
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
@@ -165,33 +188,33 @@ module.exports = {
                 injectCss: true,
                 injectChanges: true,
                 files: [{
-                  // Reload page
-                  match: ['views/**/*.blade.php', 'library/**/*.php', 'assets/dist/js/**/*.js'],
-                  fn: function(event, file) {
-                    if (event === "change") {
-                      const bs = require('browser-sync').get('bs-webpack-plugin');
-                      bs.reload();
+                    // Reload page
+                    match: ['views/**/*.blade.php', 'library/**/*.php', 'assets/dist/js/**/*.js'],
+                    fn: function (event, file) {
+                        if (event === "change") {
+                            const bs = require('browser-sync').get('bs-webpack-plugin');
+                            bs.reload();
+                        }
                     }
-                  }
                 },
                 {
-                  // Inject CSS
-                  match: ['assets/dist/css/**/*.css'],
-                  fn: function(event, file) {
-                    if (event === "change") {
-                      const bs = require('browser-sync').get('bs-webpack-plugin');
-const fs = require('fs');
-                      bs.reload("*.css");
+                    // Inject CSS
+                    match: ['assets/dist/css/**/*.css'],
+                    fn: function (event, file) {
+                        if (event === "change") {
+                            const bs = require('browser-sync').get('bs-webpack-plugin');
+                            const fs = require('fs');
+                            bs.reload("*.css");
+                        }
                     }
-                  }
                 }],
-              },
-              // plugin options
-              {
+            },
+            // plugin options
+            {
                 // prevent BrowserSync from reloading the page
                 // and let Webpack Dev Server take care of this
                 reload: false
-              }
+            }
         ) : null
         ,
 
@@ -217,7 +240,7 @@ const fs = require('fs');
          */
         new WebpackManifestPlugin({
             // Filter manifest items
-            filter: function(file) {
+            filter: function (file) {
                 // Don't include source maps
                 if (file.path.match(/\.(map)$/)) {
                     return false;
@@ -225,7 +248,7 @@ const fs = require('fs');
                 return true;
             },
             // Custom mapping of manifest item goes here
-            map: function(file) {
+            map: function (file) {
                 // Fix incorrect key for fonts
                 if (
                     file.isAsset &&
@@ -249,7 +272,7 @@ const fs = require('fs');
         /**
          * Enable build OS notifications (when using watch command)
          */
-        new WebpackNotifierPlugin({alwaysNotify: true, skipFirstNotification: true}),
+        new WebpackNotifierPlugin({ alwaysNotify: true, skipFirstNotification: true }),
 
         /**
          * Minimize CSS assets
@@ -260,6 +283,7 @@ const fs = require('fs');
                     "default",
                     {
                         discardComments: { removeAll: true },
+                        calc: false,
                     },
                 ],
             },
@@ -268,23 +292,23 @@ const fs = require('fs');
         /** Parse the icon specification */
         function () {
             const filePath = path.resolve(__dirname, 'node_modules', 'material-symbols', 'index.d.ts');
-            
+
             fs.readFile(filePath, 'utf8', (err, data) => {
                 if (err || !data) {
                     console.error(err ? `Error reading icon file: ${filePath} [${err}]` : `No data in icon file: ${filePath}`);
                     return;
                 }
-        
+
                 const [startIndex, endIndex] = [
-                    data.indexOf('['), 
+                    data.indexOf('['),
                     data.indexOf(']')
                 ];
-                
+
                 if (startIndex === -1 || endIndex === -1) {
                     console.error('Could not parse source file. Source file malformed.');
                     return;
                 }
-        
+
                 let iconArray = [];
                 try {
                     iconArray = JSON.parse(data.substring(startIndex, endIndex + 1));
@@ -292,11 +316,11 @@ const fs = require('fs');
                     console.error(`Error parsing icon data: ${parseError}`);
                     return;
                 }
-        
+
                 const json = JSON.stringify(iconArray, null, 2);
                 const resultDirectory = path.resolve(__dirname, 'assets', 'generated');
                 const resultFilepath = path.resolve(resultDirectory, 'icon.json');
-        
+
                 try {
                     fs.mkdirSync(resultDirectory, { recursive: true });
                     fs.writeFileSync(resultFilepath, json);

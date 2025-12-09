@@ -26,7 +26,7 @@ class Enqueue
         add_action('admin_enqueue_scripts', array($this, 'adminStyle'), 999);
         // Admin scripts
         add_action('admin_enqueue_scripts', array($this, 'adminScripts'), 999);
-
+        
         // Removes version querystring from scripts and styles
         $remove_script_versions = apply_filters('municipio/remove_script_versions', true);
         if ($remove_script_versions) {
@@ -101,6 +101,10 @@ class Enqueue
         
         wp_register_style('material-symbols-fonts', self::getAssetWithCacheBust('fonts/material-symbols.css'));
         wp_enqueue_style('material-symbols-fonts');
+
+        // Load local municipio css
+        wp_register_style('municipio-css', self::getAssetWithCacheBust('css/municipio.css'));
+        wp_enqueue_style('municipio-css');
     }
 
      /**
@@ -209,8 +213,8 @@ class Enqueue
         wp_enqueue_script('municipio-js');
 
         //Load instant page
-        wp_register_script('instantpage-js', self::getAssetWithCacheBust('js/instantpage.js'));
-        wp_enqueue_script('instantpage-js');
+        // wp_register_script('instantpage-js', self::getAssetWithCacheBust('js/instantpage.js'));
+        // wp_enqueue_script('instantpage-js');
 
         //Load pdf generator
         wp_register_script('pdf-js', self::getAssetWithCacheBust('js/pdf.js'));
