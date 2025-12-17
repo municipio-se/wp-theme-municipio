@@ -176,10 +176,11 @@ class ImageAltTextValidation
     private function getAltText($id): ?string
     {
         $altText = get_post_meta($id, '_wp_attachment_image_alt', true);
-        if (!empty($altText)) {
-            return $altText;
+        if (empty($altText)) {
+            $altText = null;
         }
-        return null;
+        $altText = apply_filters('Municipio/Admin/Acf/ImageAltTextValidation/getAltText', $altText, $id);
+        return $altText;
     }
 
     /**
