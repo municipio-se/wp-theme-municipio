@@ -87,7 +87,7 @@ class Archive extends \Municipio\Controller\BaseController
         //Show filter?
         $this->data['showFilter']               = $this->showFilter($this->data['archiveProps']);
 
-        
+        $this->data['lang']->searchResults      = __("Matching posts", "municipio");
         
         //Archive menu
         $archiveMenu = new \Municipio\Helper\Navigation('archive-menu');

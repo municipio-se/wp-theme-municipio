@@ -47,6 +47,13 @@
     <div
         class="archive s-archive s-archive-template-{{ sanitize_title($template) }}  s-{{ sanitize_title($postType) }}-archive">
 
+        @typography([
+            'element' => 'h2',
+            'classList' => ['sr-only']
+        ])
+            {{ $lang->searchResults }}
+        @endtypography
+
         {!! $hook->loopStart !!}
 
         @includeWhen($archiveMenuItems, 'partials.archive.archive-menu')
