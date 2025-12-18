@@ -144,15 +144,6 @@ class Editor
                     \Municipio\Helper\CacheBust::name('css/mce.css')
             )
         );
-
-        add_editor_style(
-            apply_filters(
-                'Municipio/Admin/EditorMunicipio',
-                get_template_directory_uri() .
-                    '/assets/dist/' .
-                    \Municipio\Helper\CacheBust::name('css/municipio.css')
-            )
-        );
     }
     /**
      * Add style format options

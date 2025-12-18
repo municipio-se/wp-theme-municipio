@@ -16,10 +16,10 @@
   },
   "include": [
     "assets/source/**/*",
-    "node_modules/@municipio/styleguide/source/js/**/*",
+    "node_modules/@helsingborg-stad/styleguide/source/js/**/*",
   ],
   "exclude": [
-    "node_modules/@municipio/styleguide/**/*.test.ts",
-    "node_modules/@municipio/styleguide/**/*.test.js",
+    "node_modules/@helsingborg-stad/styleguide/**/*.test.ts",
+    "node_modules/@helsingborg-stad/styleguide/**/*.test.js",
   ]
 }
