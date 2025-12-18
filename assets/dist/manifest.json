@@ -1,8 +1,9 @@
 {
-  "css/styleguide.css": "css/styleguide.ad90babf.css",
-  "js/styleguide.js": "js/styleguide.57065b5f680cce9c4266.js",
-  "css/municipio.css": "css/municipio.0bbb19fc.css",
-  "js/municipio.js": "js/municipio.832960b2d5cd05be95de.js",
+  "css/styleguide.css": "css/styleguide.ec26016c.css",
+  "js/styleguide.js": "js/styleguide.48a3b9d55c32082af2b5.js",
+  "css/municipio.css": "css/municipio.f3ea2097.css",
+  "js/municipio.js": "js/municipio.e9a2b10364f8a84f4dd4.js",
+  "js/instantpage.js": "js/instantpage.d84070696ab7d391ef81.js",
   "js/mce.js": "js/mce.4787980c935c36172688.js",
   "css/mce.css": "css/mce.464e0e25.css",
   "css/blockeditor.css": "css/blockeditor.cf9e317f.css",
@@ -16,8 +17,6 @@
   "css/acf.css": "css/acf.6af83836.css",
   "js/mce-pricons.js": "js/mce-pricons.9122e88199ea1694cfca.js",
   "js/mce-metadata.js": "js/mce-metadata.3527c1f49fd692815309.js",
-  "fonts/material-symbols.css": "fonts/material-symbols.ea4916d5.css",
-  "351.js": "351.4d929c47199d469f8ae5.js",
-  "413.js": "413.81475dfc35877b9e85ea.js",
-  "fonts/material-symbols-outlined.woff2": "fonts/material-symbols-outlined.woff2"
+  "fonts/material-symbols.css": "fonts/material-symbols.f58ffcaa.css",
+  "material-symbols-outlined.woff2": "7043db1e91c4ae53dd66.woff2"
 }
