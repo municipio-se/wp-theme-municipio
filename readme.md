@@ -1,8 +1,6 @@
 # Municipio Theme
 
-This WordPress theme is an LTS version of [the Municipio theme](github.com/helsingborg-stad/Municipio).
-
-Version 25.x is based on v4.25.0 of the original Municipio theme.
+This WordPress theme is a [Municipio LTS](https://github.com/municipio-se/municipio-lts) version of the [Municipio theme v4.25.0](https://github.com/helsingborg-stad/Municipio).
 
 ## Changes in this Fork
 
@@ -19,6 +17,7 @@ Security and accessibility improvements include disabling custom code input and 
 This fork adds the following WordPress hooks for enhanced customization:
 
 **Filters:**
+
 - `Municipio/Hook/showSiteNameInSearchResult` - Control site name display in search results
 - `Municipio/Helper/Post/EmptyExcerpt` - Modify empty excerpt handling
 - `Municipio/Admin/EnableMetaDataPlugin` - Control metadata plugin activation
@@ -33,6 +32,7 @@ This fork adds the following WordPress hooks for enhanced customization:
 - `Municipio/Admin/Acf/ImageAltTextValidation/getAltText` - Customize image alt text validation
 
 **Actions:**
+
 - `Municipio/Hook/articleContentBefore` - Add content before article content
 - `Municipio/Hook/articleContentAfter` - Add content after article content
 - `Municipio/Customizer/Sections/Archive/init` - Hook into archive customizer initialization
