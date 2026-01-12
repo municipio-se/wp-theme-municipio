@@ -638,9 +638,24 @@ class Navigation
      */
     public function getMenuItems(string $menu, ?int $pageId = null, bool $fallbackToPageTree = false, bool $includeTopLevel = true, bool $onlyKeepFirstLevel = false)
     {
+        $menuId = has_nav_menu($menu) ? get_nav_menu_locations()[$menu] : null;
+
+        /**
+         * Filter the menu identifier before fetching menu items
+         * 
+         * @param string $menuId The menu identifier
+         * @param int|null $pageId The page ID
+         * @param bool $fallbackToPageTree Whether to fallback to page tree if no menu is found
+         * @param bool $includeTopLevel Whether to include the top level item in the result
+         * @param bool $onlyKeepFirstLevel Whether to only keep the first level of items
+         * @param string $identifier The navigation identifier
+         * @param string $context The navigation context
+         */
+        $menuId = apply_filters('Municipio/Helper/Navigation/getMenuItems/menuId', $menuId, $pageId, $fallbackToPageTree, $includeTopLevel, $onlyKeepFirstLevel, $this->identifier, $this->context);
+
         //Check for existing wp menu
-        if (has_nav_menu($menu)) {
-            $menuItems = wp_get_nav_menu_items(get_nav_menu_locations()[$menu]);
+        if ($menuId) {
+            $menuItems = wp_get_nav_menu_items($menuId);
 
             if (is_array($menuItems) && !empty($menuItems)) {
                 $result = []; //Storage of result
