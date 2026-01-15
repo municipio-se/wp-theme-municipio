@@ -49,7 +49,7 @@
 
         @typography([
             'element' => 'h2',
-            'classList' => ['sr-only']
+            'classList' => ['u-sr__only']
         ])
             {{ $lang->searchResults }}
         @endtypography
