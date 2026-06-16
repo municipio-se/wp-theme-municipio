@@ -1,6 +1,15 @@
 # Municipio Theme
 
-This WordPress theme is a [Municipio LTS](https://github.com/municipio-se/municipio-lts) version of the [Municipio theme v4.25.0](https://github.com/helsingborg-stad/Municipio).
+This WordPress theme is a
+[Municipio LTS](https://github.com/municipio-se/municipio-lts) version of
+Helsingborg stad's [Municipio theme](https://github.com/helsingborg-stad/Municipio).
+
+## Fork Base
+
+This LTS fork is based on upstream tag
+[`4.25.0`](https://github.com/helsingborg-stad/Municipio/tree/4.25.0),
+commit
+[`fac64460`](https://github.com/helsingborg-stad/Municipio/commit/fac6446067a817721e76f98b03abb3d0d85f8b5b).
 
 ## Changes in this Fork
 
